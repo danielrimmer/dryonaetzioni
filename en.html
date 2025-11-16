@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Gascogne';
+            src: url('images/fonnts.com-gascogne_serial-regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gascogne';
+            src: url('images/fonnts.com-gascogne_serial-bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
         :root {
             --navy: #0b1f3a;
             --primary: #1a73e8;
@@ -17,7 +29,7 @@
             --light: #f4f8fb;
             --text: #1f2a44;
             --muted: #718096;
-            --bg-gradient: linear-gradient(135deg, rgba(10,31,58,0.95), rgba(7,78,140,0.85)), url('https://images.unsplash.com/photo-1588776814546-1ffcf47267cd?auto=format&fit=crop&w=1600&q=80');
+            --bg-gradient: linear-gradient(135deg, #0a1f3a 0%, #1a3a5c 40%, #0f4a9e 100%);
         }
         * {
             box-sizing: border-box;
@@ -27,10 +39,11 @@
         }
         body {
             margin: 0;
-            font-family: 'Poppins', 'Assistant', sans-serif;
+            font-family: 'Gascogne', 'Poppins', 'Assistant', sans-serif;
             color: var(--text);
             background: #f0f6ff;
             line-height: 1.7;
+            font-weight: 400;
         }
         .container {
             width: min(1160px, 92vw);
@@ -51,6 +64,16 @@
             padding: 18px 0;
             flex-wrap: wrap;
             gap: 12px;
+        }
+        .logo-group {
+            display: flex;
+            align-items: center;
+        }
+        .logo-image {
+            height: 50px;
+            width: auto;
+            max-width: 250px;
+            object-fit: contain;
         }
         .logo-group h1 {
             margin: 0;
@@ -115,10 +138,20 @@
         .hero::after {
             content: "";
             position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            pointer-events: none;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
             inset: 30px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 32px;
             pointer-events: none;
+            z-index: 2;
         }
         .hero-grid {
             display: grid;
@@ -130,7 +163,7 @@
         .hero h2 {
             font-size: clamp(2.4rem, 4vw, 3.4rem);
             margin: 0 0 16px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.02em;
         }
         .hero p {
@@ -170,6 +203,7 @@
         .highlight-card h4 {
             margin: 0 0 6px;
             font-size: 1.05rem;
+            font-weight: 700;
         }
         .section {
             padding: clamp(3.5rem, 6vw, 5rem) 0;
@@ -178,6 +212,7 @@
             font-size: clamp(1.8rem, 3vw, 2.4rem);
             margin: 0 0 18px;
             color: var(--navy);
+            font-weight: 700;
         }
         .section p.lead {
             font-size: 1.05rem;
@@ -222,6 +257,7 @@
             margin: 0 0 12px;
             color: var(--navy);
             font-size: 1.12rem;
+            font-weight: 700;
         }
         .card-grid {
             display: grid;
@@ -239,6 +275,7 @@
         .card h4 {
             margin: 0 0 12px;
             color: var(--navy);
+            font-weight: 700;
         }
         .card p {
             margin: 0;
@@ -284,6 +321,7 @@
             align-items: center;
             gap: 10px;
             font-size: 1.15rem;
+            font-weight: 700;
         }
         .comparison ul {
             margin: 0;
@@ -317,6 +355,7 @@
         .life-vision h4 {
             margin: 0;
             color: var(--navy);
+            font-weight: 700;
         }
         .life-vision ul {
             margin: 0;
@@ -343,6 +382,7 @@
             margin: 0 0 16px;
             font-size: 1.3rem;
             color: var(--navy);
+            font-weight: 700;
         }
         .profile-card ul {
             margin: 0;
@@ -380,6 +420,7 @@
             margin: 36px 0 12px;
             color: var(--navy);
             font-size: 1.2rem;
+            font-weight: 700;
         }
         .guarantee {
             margin-top: 40px;
@@ -393,6 +434,7 @@
             margin: 0 0 12px;
             font-size: 1.45rem;
             color: var(--navy);
+            font-weight: 700;
         }
         .deadline {
             margin-top: 34px;
@@ -406,6 +448,7 @@
             margin: 0 0 12px;
             font-size: 1.3rem;
             color: var(--navy);
+            font-weight: 700;
         }
         .cta-block {
             margin-top: 36px;
@@ -517,6 +560,7 @@
         .contact-section h4 {
             margin: 0;
             font-size: 1.45rem;
+            font-weight: 700;
         }
         .contact-grid {
             display: grid;
@@ -605,14 +649,12 @@
     <header>
         <div class="container">
             <div class="top-bar">
-                <div class="logo-group">
-                    <h1>Dr. Yoni Etzioni</h1>
-                    <p>Jerusalem's Dental Sleep Medicine Specialist</p>
-                </div>
                 <div class="header-actions">
-                    <div class="contact-chip">Call: 054-228-2840</div>
                     <button class="header-cta" onclick="location.href='#consultation'">Schedule Consultation</button>
                     <button class="lang-btn" onclick="window.location.href='index.html'">עברית</button>
+                </div>
+                <div class="logo-group">
+                    <img src="images/dental-clinic-english.svg" alt="Dr. Yoni Etzioni - Dental Sleep Medicine" class="logo-image">
                 </div>
             </div>
         </div>
@@ -924,15 +966,15 @@
                     </div>
                     <div class="contact-card">
                         <strong>💬 WhatsApp</strong>
-                        <span>053-545-5468</span>
+                        <span>054-228-2840</span>
                     </div>
                     <div class="contact-card">
                         <strong>📧 Email</strong>
                         <span>Dr.yona@gmail.com</span>
                     </div>
                     <div class="contact-card">
-                        <strong>📍 Clinic</strong>
-                        <span>9 Diskin Street, Floor 6A, Jerusalem, Israel</span>
+                        <strong>📍 Phone</strong>
+                        <span>026-245-160</span>
                     </div>
                 </div>
                 <div class="trust-badges" style="color: rgba(255,255,255,0.88);">
@@ -960,9 +1002,10 @@
 
     <button class="mobile-cta" onclick="location.href='#consultation'">Book Consultation</button>
 
-    <a href="https://wa.me/9720535455468" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Chat on WhatsApp">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.647.791 5.127 2.288 7.19L3.771 21.01l7.638-2.006A9.908 9.908 0 0012.121 21c5.44 0 9.873-4.434 9.873-9.873 0-2.65-.791-5.13-2.288-7.193 1.497 2.063 2.288 4.543 2.288 7.193 0 5.44-4.434 9.873-9.873 9.873-2.647 0-5.127-.791-7.19-2.288l.005.001z" fill="currentColor"/>
+    <a href="https://wa.me/972542282840" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.548 4.127 1.508 5.872L0 24l6.292-1.492C8.765 23.383 10.32 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.411 0-2.776-.342-3.971-.998l-2.849.677.692-2.764C1.78 16.875 1 14.531 1 12c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10z"/>
+            <path d="M16.674 13.883c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         </svg>
     </a>
 
